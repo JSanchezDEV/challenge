@@ -1,4 +1,4 @@
-ruby "2.4.3"
+ruby "2.6.1"
 source "https://rubygems.org"
 
 gem "sinatra"
@@ -9,6 +9,7 @@ gem "json_spec"
 group :development do
   gem "pry"
   gem "shotgun"
+  gem "rack-test"
 end
 
 group :test do

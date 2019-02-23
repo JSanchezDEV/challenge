@@ -17,17 +17,18 @@ describe "app" do
     it "returns a breeds JSON" do
       get "/breeds"
 
-      puts last_response.body.inspect
+      #puts last_response.body.inspect
       expect(last_response).to be_ok
     end
   end
 
-  # describe "GET '/random_breed'" do
-  #   it "returns a random dog of a specific breed" do
-  #     let breed = "yorkshire"
-  #      get "/random_breed"
-  #       expect(last_response).to be_ok
-
-  #   end
-  # end
+   describe "GET '/random_breed'" do
+     it "returns a random dog of a specific breed" do
+       breed = "hound"
+        get "/random_breed", breed: breed
+         expect(last_response).to be_ok
+         expect(last_response.body).to have_json_path("message")
+         expect JSON.parse(JSON.parse(last_response.body)["message"])["message"].include? breed
+     end
+   end
 end
