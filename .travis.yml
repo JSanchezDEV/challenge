@@ -3,4 +3,4 @@ rvm:
   - 2.6.1
 script:
   - bundle install
-  - bunder exec rspecs specs/
+  - bundle exec rspec specs/
